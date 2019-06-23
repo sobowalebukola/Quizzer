@@ -5,6 +5,12 @@ import { SignUpLink } from '../SignUp';
 import { withFirebase } from '../Firebase';
 import { PasswordForgetLink } from '../PasswordForget/index';
 import * as ROUTES from '../../constants/routes';
+import {
+  Container, Col, Form,
+  FormGroup, Label, Input,
+  Button,
+} from 'reactstrap';
+
 
 /*const SignInPage = () => (
   <div>
@@ -15,7 +21,7 @@ import * as ROUTES from '../../constants/routes';
   </div>
 );
 */
-const INITIAL_STATE = {
+/*const INITIAL_STATE = {
   email: '',
   password: '',
   error: null,
@@ -77,12 +83,52 @@ class SignInFormBase extends Component {
       </form>
     );
   }
-}
-
-const SignInForm = compose(
-  withRouter,
-  withFirebase,
-)(SignInFormBase);
+}*/
 
 
-export { SignInForm };
+/*const SignInForm = compose(
+    withRouter,
+    withFirebase,
+  )(SignInFormBase);
+  
+  
+  export { SignInForm };*/
+  
+
+  
+  class App extends Component {
+    render() {
+      return (
+        <Container className="App">
+          <h2>Sign In</h2>
+          <Form className="form">
+            <Col>
+              <FormGroup>
+                <Label>Email</Label>
+                <Input
+                  type="email"
+                  name="email"
+                  id="exampleEmail"
+                  placeholder="myemail@email.com"
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label for="examplePassword">Password</Label>
+                <Input
+                  type="password"
+                  name="password"
+                  id="examplePassword"
+                  placeholder="********"
+                />
+              </FormGroup>
+            </Col>
+            <Button>Submit</Button>
+          </Form>
+        </Container>
+      );
+    }
+  }
+  
+  export default App;
